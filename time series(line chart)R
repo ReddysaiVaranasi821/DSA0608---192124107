@@ -1,0 +1,12 @@
+library(plotly)
+time_series_data <- data.frame(
+  Month = c("January", "February", "March", "April", "May"),
+  Sales = c(15000, 18000, 22000, 20000, 23000)
+)
+line_chart <- plot_ly(time_series_data, x = ~Month, y = ~Sales, type = 'scatter', mode = 'lines+markers', marker = list(color = 'blue')) %>%
+  layout(title = "Time Series Analysis",
+         xaxis = list(title = "Month"),
+         yaxis = list(title = "Sales ($)"))
+line_chart
+
+
