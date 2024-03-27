@@ -1,0 +1,20 @@
+
+install.packages("plotly")
+library(plotly)
+
+website_analytics <- data.frame(
+  Date = as.Date(c("2023-01-01", "2023-01-02", "2023-01-03", "2023-01-04", "2023-01-05")),
+  Page_Views = c(1500, 1600, 1400, 1650, 1800),
+  Click_through_Rate = c(0.023, 0.027, 0.020, 0.024, 0.026)
+)
+
+
+scatter_chart <- plot_ly(website_analytics, x = ~Date, mode = "markers") %>%
+  add_trace(y = ~Page_Views, name = "Page Views", type = "scatter", mode = "markers", marker = list(color = "blue")) %>%
+  add_trace(y = ~Click_through_Rate, name = "Click-through Rate", type = "scatter", mode = "markers", marker = list(color = "red")) %>%
+  layout(title = "Website Analytics",
+         xaxis = list(title = "Date"),
+         yaxis = list(title = "Value"),
+         showlegend = TRUE)
+
+scatter_chart
