@@ -1,0 +1,17 @@
+rary(ggplot2)
+
+product_inventory <- data.frame(
+  Product_ID = c(1, 2, 3, 4, 5),
+  Product_Name = c("Product A", "Product B", "Product C", "Product D", "Product E"),
+  Quantity_Available = c(250, 175, 300, 200, 220)
+)
+
+histogram <- ggplot(product_inventory, aes(x = Quantity_Available)) +
+  geom_histogram(binwidth = 50, fill = "skyblue", color = "black", alpha = 0.7) +
+  labs(title = "Product Inventory Distribution",
+       x = "Quantity Available",
+       y = "Frequency") +
+  theme_minimal()
+
+
+print(histogram)
