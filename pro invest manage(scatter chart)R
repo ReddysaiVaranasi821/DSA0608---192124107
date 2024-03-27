@@ -8,11 +8,12 @@ product_data <- data.frame(
   Quantity_Available = c(250, 175, 300, 200, 220)
 )
 
-# Create the line chart
-ggplot(product_data, aes(x = Product_ID, y = Quantity_Available)) +
-  geom_line() +  # Add lines connecting the points
-  geom_point() +  # Add points for each data point
+# Create the scatter chart
+ggplot(product_data, aes(x = Product_Name, y = Quantity_Available)) +
+  geom_point() +  # Add points
   labs(title = "Product Inventory Management",
-       x = "Product ID",
+       x = "Product Name",
        y = "Quantity Available") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotate x-axis labels for better readability
   theme_minimal()
+
