@@ -1,0 +1,12 @@
+library(ggplot2)
+time_series_data <- data.frame(
+  Month = c("January", "February", "March", "April", "May"),
+  Sales = c(15000, 18000, 22000, 20000, 23000)
+)
+scatter_plot <- ggplot(time_series_data, aes(x = Month, y = Sales)) +
+  geom_point(color = "blue", size = 3) +
+  labs(title = "Time Series Analysis",
+       x = "Month",
+       y = "Sales ($)") +
+  theme_minimal()
+print(scatter_plot)
