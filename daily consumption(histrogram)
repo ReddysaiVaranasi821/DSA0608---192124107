@@ -1,0 +1,17 @@
+# Define the data
+age_groups <- c("0-10", "11-30", "31-50", "51-80")
+dairy <- c(50, 35, 25, 40)
+
+# Load the required libraries
+library(ggplot2)
+
+# Create a data frame
+data <- data.frame(Age_Group = age_groups, Daily_Consumption = dairy)
+
+# Create the histogram
+ggplot(data, aes(x = Daily_Consumption)) +
+  geom_histogram(binwidth = 5, fill = "skyblue", color = "black", alpha = 0.7) +
+  labs(title = "Distribution of Daily Consumption of Dairy Across Age Groups",
+       x = "Daily Consumption",
+       y = "Frequency") +
+  theme_minimal()
