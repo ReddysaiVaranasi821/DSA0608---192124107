@@ -1,0 +1,20 @@
+age_groups <- c("0-10", "11-30", "31-50", "51-80")
+dairy <- c(50, 35, 25, 40)
+staple_food <- c(30, 45, 55, 40)
+high_calorie_food <- c(10, 15, 13, 4)
+supplements <- c(10, 5, 7, 16)
+data <- data.frame(
+  Age_Group = age_groups,
+  Dairy = dairy,
+  Staple_Food = staple_food,
+  High_Calorie_Food = high_calorie_food,
+  Supplements = supplements
+)
+library(ggplot2)
+data_long <- tidyr::gather(data, "Food_Type", "Daily_Consumption", -Age_Group)
+ggplot(data_long, aes(x = Age_Group, y = Daily_Consumption, fill = Food_Type)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Age Group", y = "Daily Consumption", title = "Daily Consumption of Different Types of Food by Age Group") +
+  theme_minimal() +
+  scale_fill_manual(values = c("Dairy" = "lightblue", "Staple_Food" = "orange", "High_Calorie_Food" = "lightgreen", "Supplements" = "pink")) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for better readability
