@@ -1,0 +1,15 @@
+library(plotly)
+
+# Step 2: Create a data frame with the website traffic data
+website_traffic <- data.frame(
+  Date = as.Date(c("2023-01-01", "2023-01-02", "2023-01-03", "2023-01-04", "2023-01-05")),
+  Page_Views = c(1500, 1600, 1400, 1650, 1800),
+  Click_through_Rate = c(0.023, 0.027, 0.020, 0.024, 0.026)
+)
+
+# Step 3: Create the pie chart using plot_ly()
+pie_chart <- plot_ly(website_traffic, labels = ~Date, values = ~Page_Views, type = 'pie') %>%
+  layout(title = "Website Page Views Distribution")
+
+# Display the pie chart
+pie_chart
