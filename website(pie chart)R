@@ -1,0 +1,12 @@
+library(plotly)
+website_analytics <- data.frame(
+  Date = as.Date(c("2023-01-01", "2023-01-02", "2023-01-03", "2023-01-04", "2023-01-05")),
+  Page_Views = c(1500, 1600, 1400, 1650, 1800),
+  Click_through_Rate = c(0.023, 0.027, 0.020, 0.024, 0.026)
+)
+
+pie_chart <- plot_ly(website_analytics, labels = ~Date, values = ~Page_Views, type = 'pie') %>%
+  layout(title = "Page Views Distribution")
+pie_chart
+
+
